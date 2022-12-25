@@ -3,7 +3,6 @@ from math import factorial as fact
 
 def _get_coeff(n, k) -> int:
     '''Returns coefficient in front of the term in accordance with given `n` and `k` states'''
-
     result = fact(n) / (fact(k) * fact(n-k))
 
     return int(result)
@@ -11,13 +10,11 @@ def _get_coeff(n, k) -> int:
 
 def _get_powers(n, k) -> tuple:
     '''Returns powers of the variables in accordance with given `n` and `k` states'''
-    
     return (n-k, k)
 
 
 def _format_power(power) -> str:
     '''Formats given power from n to ⁿ and returns it'''
-
     if power == 1:
         return ''
 
@@ -34,7 +31,6 @@ def _format_power(power) -> str:
 
 def _get_term(coeff, powers) -> str:
     '''Creates the term using coefficient and powers of the variables and returns it'''
-
     result = ''
     variables = ('a', 'b')
 
@@ -49,7 +45,6 @@ def _get_term(coeff, powers) -> str:
 
 def _get_terms(n) -> str:
     '''Contains main loop. Returns terms of the sum'''
-
     for k in range(n+1):
         powers = _get_powers(n, k)
         coeff = _get_coeff(n, k)
@@ -59,7 +54,6 @@ def _get_terms(n) -> str:
 
 def get_sum(n) -> str:
     '''Joins the terms into sum'''
-    
     terms = _get_terms(n)
 
     return ' + '.join(terms)
